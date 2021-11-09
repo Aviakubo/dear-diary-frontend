@@ -1,7 +1,7 @@
 function Header(props) {
     return (
       <header>
-        <h1>Journal Entries</h1>
+        <h1>Dear Diary</h1>
       </header>
     );
 }
