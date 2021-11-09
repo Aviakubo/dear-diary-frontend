@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 import './App.css';
 import Main from "./components/Main"
 import Aside from "./components/Aside";
@@ -21,6 +21,7 @@ function App() {
           const journals = await fetch('http://localhost:3000/journals')
           .then(response => response.json())
           setJournalsState({ journals });
+          console.log(journals);
         } catch (error) {
           console.log(error)
         }

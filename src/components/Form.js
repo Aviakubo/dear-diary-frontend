@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Input from './Input';
-import React from 'react'
+import React from 'react';
 
 function Form(props) {
   const [formState, setFormState] = useState({
@@ -30,14 +30,16 @@ function Form(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    // props.handleAdd(formState);
     if (props.journal) {
       props.handleUpdate(formState);
       props.toggleForm();
     } else {
-      props.handleSubmit(formState);
+        props.handleAdd(formState);
     }
   }
   return (
+
     <form onSubmit={handleSubmit}>
       <Input
         handleChange={handleChange}
@@ -47,22 +49,24 @@ function Form(props) {
         value={formState.title}
         id="title"
       />
+      
       <Input
         handleChange={handleChange}
         name="date"
-        placeholder="Journal Date"
+        placeholder="MM-DD-YYYY"
         type="text"
         value={formState.date}
         id="date"
       />
+      
       <Input
         handleChange={handleChange}
         name="entry"
         placeholder="Journal Entry"
-        type="text"
         value={formState.entry}
         id="entry"
       />
+    
       <input type="submit" value={props.journal ? "update this journal" : "add a journal entry"} />
     </form>
   );
